@@ -59,24 +59,16 @@ npm pack --dry-run --json
 
 ## 安装到 DSH Desktop
 
-先生成 tarball：
-
 ```powershell
-npm pack
+dsh plugin add https://github.com/new-Beginner/dsh-plugin-chat-performance/releases/download/v0.1.0/dsh-plugin-chat-performance-0.1.0.tgz
 ```
 
-再使用 DSH Desktop 自带的 profile 命令（不要直接编辑安装目录）：
-
-```powershell
-& "$env:APPDATA\DSH Desktop\host-commands\desktop\bin\dsh.cmd" plugin add "D:\deepseek-harness\dsh-plugin-chat-performance\dsh-plugin-chat-performance-0.1.0.tgz"
-```
-
-DSH Desktop 的官方终端明确要求：**新增或移除插件后重启 Desktop 才会重建启动图**。本插件的日常 enabled/高度设置不需要重启，但首次安装需要。若当前任务禁止重启，请在安装后保留“已安装、待下次正常启动生效”的状态。
+安装后重启 DSH Desktop 一次以重建启动图。日常切换 enabled/高度设置不需要重启。
 
 ## 卸载与撤销
 
 ```powershell
-& "$env:APPDATA\DSH Desktop\host-commands\desktop\bin\dsh.cmd" plugin remove dsh-plugin-chat-performance
+dsh plugin remove dsh-plugin-chat-performance
 ```
 
 卸载后下一次正常启动不再加载插件。运行期 dispose 会删除唯一的 style 标签；插件不写会话日志，不迁移数据，不清空缓存、Local Storage 或用户配置。
