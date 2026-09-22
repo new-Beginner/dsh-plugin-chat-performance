@@ -1,0 +1,6 @@
+@supports (content-visibility: auto) {
+  [data-chat-flow-key] {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 96px;
+  }
+}
